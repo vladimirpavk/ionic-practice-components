@@ -6,6 +6,43 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
- 
+<ion-content padding>    
+  <h2 text-center>
+    Enter the right Code
+  </h2>
+  <p text-center *ngIf="!((numTimesTapped==2)&&(numTimesPressed==4))">
+    Tap twice, press four times
+  </p>
+  <p text-center *ngIf="(numTimesTapped==2)&&(numTimesPressed==4)">
+      You won
+  </p>
+  <ion-list>
+    <ion-item>
+      <p>Tapped: {{numTimesTapped}}</p>
+    </ion-item>
+    <ion-item>
+      <p>Pressed: {{numTimesPressed}}</p>
+    </ion-item>
+  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button text-center ion-button small block color="danger" (click)="onResetAll()">Reset All</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button small block color="danger" (click)="onResetTaps()">Reset "Taps"</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button small block color="danger" (click)="onResetPressed()">Reset "Presses"</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button block color="secondary" (tap)="onTap()">Tap here</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block color="secondary" (click)="onPress()">Press here</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
